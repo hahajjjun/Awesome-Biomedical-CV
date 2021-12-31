@@ -1,5 +1,3 @@
-# Computer Vision Week 1. [2021 CV]
-
 ### ResNet : Deep Residual Learning for Image Recognition
 
 - **Abstract**
