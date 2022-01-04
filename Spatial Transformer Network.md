@@ -32,11 +32,11 @@
     3. Affine Transformation : Rotation, Translation, Scaling + *Shearing, Reflection*
     4. Homography (Projective Transformation) : Arbitrary Square ⇒ Arbitrary Square
         
-        ![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled.png)
+        ![Untitled](Spatial Transformer Network_Resources/Untitled.png)
         
     5. TPS(Thin Plate Spline) : Spline Interpolation의 일종, 얇은 천 위의 점들이 천이 주름짐에 따라 일그러지는 것과 같은 변환
         
-        ![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%201.png)
+        ![Untitled](Spatial Transformer Network_Resources/Untitled%201.png)
         
 
 ---
@@ -52,7 +52,7 @@
 > *Spatial transformer module is a dynamic mechanism that can actively spatially transform an image or a feature map.*
 > 
 
-![변형된 MNIST Dataset에 Spatial Transformer를 적용한 결과](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_3.png)
+![변형된 MNIST Dataset에 Spatial Transformer를 적용한 결과](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_3.png)
 
 변형된 MNIST Dataset에 Spatial Transformer를 적용한 결과
 
@@ -67,7 +67,7 @@
 - Spatial Transformer ⇒ Localisation network + Grid Generator + Sampler
 - Spatial Transformer는 input feature map(U)를 받아 warped output feature map(V)를 반환한다.
     
-    ![PNG 이미지.png](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.png)
+    ![PNG 이미지.png](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.png)
     
 
 ---
@@ -92,7 +92,7 @@
 - $G = \{G_i\}: G_i = (x_i^t,y_i^t)$
 - $\begin{bmatrix}x_i^s\\y_i^s\end{bmatrix} =T_{\theta}(G)\begin{bmatrix}x_i^t \\y_i^t \\1\end{bmatrix}$
     
-    ![PNG 이미지 4.png](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_4.png)
+    ![PNG 이미지 4.png](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_4.png)
     
 
 - *affine transformation*
@@ -105,7 +105,7 @@
     \theta_{11} & \theta_{12} & \theta_{13}\\
     \theta_{21} & \theta_{22} & \theta_{23} \end{bmatrix}\begin{bmatrix}x_i^t \\y_i^t \\1\end{bmatrix}$
     
-    ![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%202.png)
+    ![Untitled](Spatial Transformer Network_Resources/Untitled%202.png)
     
 
 - *attention*
@@ -118,7 +118,7 @@
     s & 0 & t_x\\
     0 & s & t_y \end{bmatrix}\begin{bmatrix}x_i^t \\y_i^t \\1\end{bmatrix}$
     
-    ![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%203.png)
+    ![Untitled](Spatial Transformer Network_Resources/Untitled%203.png)
     
 - 여기서  $T_{\theta}$는 $U$→$V$로 가는 Transformation으로 생각할 수 있지만, 실제로 행렬 계산 시에는 Canonical → Distorted로 가는 Transformation이므로 반대 방향이다.
 - Transformation   $T_{\theta}$ 의 parameter $\theta$로 affine transformation, attention 외에도 projective transformation, thin-plate-spline(TPS) tarnsformation 등을 모두 표현할 수 있다.
@@ -132,37 +132,37 @@
 
 - Sampler는 input feature map U로부터 sampled output feature map V를 생성한다.
 
-![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%204.png)
+![Untitled](Spatial Transformer Network_Resources/Untitled%204.png)
 
 - output feature map V의 좌표마다, U의 어느 point에서 값을 가져올지 $T_{\theta}(G)$가 결정한다.
 - 이때, V의 좌표에 대응되는 U의 point가 정수 격자점이 아닐 수도 있으므로 인접한 정수 격자점 값의 interpolation을 통해 V의 값을 가져온다.
     
-    ![(3) interpolation 공식](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%205.png)
+    ![(3) interpolation 공식](Spatial Transformer Network_Resources/Untitled%205.png)
     
     (3) interpolation 공식
     
-    ![PNG 이미지 3.png](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_3%201.png)
+    ![PNG 이미지 3.png](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_3%201.png)
     
 - Interpolation은 아래에 나와 있는 두 가지 방법으로 수행 가능하다.
 
-![(4) Nearest Integer Interpolation, (5) Bilinear Interpolation](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%206.png)
+![(4) Nearest Integer Interpolation, (5) Bilinear Interpolation](Spatial Transformer Network_Resources/Untitled%206.png)
 
 (4) Nearest Integer Interpolation, (5) Bilinear Interpolation
 
-![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%207.png)
+![Untitled](Spatial Transformer Network_Resources/Untitled%207.png)
 
-![제일 가까운 격자점 값으로 대체하는 방법](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_2.png)
+![제일 가까운 격자점 값으로 대체하는 방법](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_2.png)
 
 제일 가까운 격자점 값으로 대체하는 방법
 
-![점을 둘러싸는 네 개의 격자점 값의 선형 결합](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_5.png)
+![점을 둘러싸는 네 개의 격자점 값의 선형 결합](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_5.png)
 
 점을 둘러싸는 네 개의 격자점 값의 선형 결합
 
 - Loss 값을 Backpropagate하기 위해서는 interpolation function이 미분 가능해야 한다.
 - Interpolation function이 불연속이어도 구간별로 나눠서 Backpropagation 수행할 수 있다.
 
-![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%208.png)
+![Untitled](Spatial Transformer Network_Resources/Untitled%208.png)
 
 ---
 
@@ -195,7 +195,7 @@
     - *Affine transformation(Aff), Projective transformation(Proj), 16-point thin plate spline transformation(TPS)*
 - Approximately same parameters, trained with identical optimisation schemes(SGD, backprop, scheduled learning rate decrease, multinomial cross entropy loss)
 
-![Model, Distortion 유형별 percentage error, 왼쪽은 TPS(Thin Plate Spline), 오른쪽이 Aff(Affine Transformation)](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_6.png)
+![Model, Distortion 유형별 percentage error, 왼쪽은 TPS(Thin Plate Spline), 오른쪽이 Aff(Affine Transformation)](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_6.png)
 
 Model, Distortion 유형별 percentage error, 왼쪽은 TPS(Thin Plate Spline), 오른쪽이 Aff(Affine Transformation)
 
@@ -204,7 +204,7 @@ Model, Distortion 유형별 percentage error, 왼쪽은 TPS(Thin Plate Spline), 
 - Spatial transformer를 결합한 모델이 성능 향상됨 : ST module이 Spatial invariance에 기여함
 - 추가로 noisy environment(background clutter를 포함하고 있는 60X60 MNIST digits이미지)에서 FCN(13.2%), CNN(3.5%) > ST-FCN(2.0%), ST-CNN(1.7%) error를 줄임
     
-    ![Noisy environment](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%209.png)
+    ![Noisy environment](Spatial Transformer Network_Resources/Untitled%209.png)
     
     Noisy environment
     
@@ -224,13 +224,13 @@ Model, Distortion 유형별 percentage error, 왼쪽은 TPS(Thin Plate Spline), 
     - ST-CNN Single : 4-layer CNN으로 localisation net을 구성한 CNN spatial transformer를 CNN앞에 배치한 모델
     - ST-CNN Multi : 아래 그림의 (a)처럼 CNN의 첫 4개 convolutional layer의 앞 단에 2-layer FCN spatial transformer를 하나씩 삽입한 모델
 
-![Maxout CNN, CNN, DRAM(Deep Recurrent Attention Model)과 ST-CNN(Single, Multi) 비교](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%2010.png)
+![Maxout CNN, CNN, DRAM(Deep Recurrent Attention Model)과 ST-CNN(Single, Multi) 비교](Spatial Transformer Network_Resources/Untitled%2010.png)
 
 Maxout CNN, CNN, DRAM(Deep Recurrent Attention Model)과 ST-CNN(Single, Multi) 비교
 
 - Spatial transformer module이 CNN architecture 전에 결합하는 경우(ST-CNN single)와 위 그림처럼 Spatial transformer module이 CNN의 convolution layer 사이사이에 위치하는 경우(ST-CNN multi)를 비교했을 때 0.1% 감소, 유의미한 차이 없었음
     
-    ![PNG 이미지 7.png](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_7.png)
+    ![PNG 이미지 7.png](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_7.png)
     
 - ST-CNN multi에서 더 깊은 layer에 위치한 Spatial transformer의 경우에는 enriched된 feature에 대해서 transformation을 예측해야 했다.
 - 이전의 SOTA model이었던 DRAM(Deep Recurrent Attention Model)과 비교했을 때 128px 이미지 input에 대해서는 4.5% → 3.9%를 달성했다.(ST-CNN single, multi)
@@ -248,11 +248,11 @@ Maxout CNN, CNN, DRAM(Deep Recurrent Attention Model)과 ST-CNN(Single, Multi) �
     - 아래 그림처럼, transformer는 각기 다른 image part를 capture하고, capture된 이미지는 Inception에 의해 initialize 되어 있는 part description sub-net으로 들어감
     - 각각 representation을 도출해서 concat ⇒ classified with single softmax layer
 
-![PNG 이미지 8.png](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_8.png)
+![PNG 이미지 8.png](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_8.png)
 
-![PNG 이미지 9.png](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_9.png)
+![PNG 이미지 9.png](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_9.png)
 
-![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%2011.png)
+![Untitled](Spatial Transformer Network_Resources/Untitled%2011.png)
 
 - 모든 ST-CNN이 Baseline CNN 모델보다 높은 성능을 보였다.
 - red 박스는 새의 head 부분을, green 박스는 body의 중심 부분을 찾도록 별도의 supervision 없이 스스로 학습되었다(not explicitly defined, data-driven).
@@ -274,11 +274,11 @@ Maxout CNN, CNN, DRAM(Deep Recurrent Attention Model)과 ST-CNN(Single, Multi) �
 - ST1은 아래 그림처럼 Channel 1이미지를 stabilise하고, ST2는 아래 그림처럼  Channel 2이미지를 stabilise하는 것을 확인할 수 있다.
 - Spatial Transformation의 indenpendency를 확인할 수 있다.
 
-![Untitled](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/Untitled%2012.png)
+![Untitled](Spatial Transformer Network_Resources/Untitled%2012.png)
 
 - 2-channel Input 이미지를 활용해 독립적으로 ST1, ST2를 학습시킨 후 cross-prediction을 시켜서 4-channel output을 생성, 이것을 concatenate해서 FCN을 통해 predict한다.
     
-    ![PNG 이미지 10.png](Computer%20Vision%20Week%202%20%5B2021%20CV%5D%203d0a2e1c6ce243dda744c73d00e0f0ba/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_10.png)
+    ![PNG 이미지 10.png](Spatial Transformer Network_Resources/PNG_%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5_10.png)
     
 
 <aside>
