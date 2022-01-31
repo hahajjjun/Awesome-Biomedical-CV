@@ -15,7 +15,7 @@
     - DCNN → breakthroughs for image classification, different levels of features(low/mid/high) can be enriched by depth
     - **ICLR 2015 VGG[16], CVPR 2015 GoogleNet[22], BatchNorm[30], PReLu-Net & He initialization** : benefited from very deep models
         
-        ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled.png)
+        <img src = "https://user-images.githubusercontent.com/75057952/151806173-8fb7dbf8-dfa6-4bcb-ace7-470bd584a77f.png" width = "500dp"/>
         
     
     <aside>
@@ -40,7 +40,7 @@
             - Layer 깊이가 깊어짐에 따라 training, test error가 감소하지 않고 증가
                 
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%201.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806184-bb780e17-3d4c-457d-a4c7-d4b38a4928f6.png" width = "500dp"/>
                 
             - Degradation is **not** caused by **overfitting**
             - Adding more layers to a suitably deep model leads to **higher training error**
@@ -64,7 +64,7 @@
         - Formulation of F(x) + x : by feedforward nerual networks with **shortcut connections**
         - Architecture of Residual Block
             
-            ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%202.png)
+            <img src = "https://user-images.githubusercontent.com/75057952/151806189-143bf104-434f-4166-a244-fa2a37ae9fa3.png" width = "400dp"/>
             
             - 잔차 함수 F(x)를 학습하는 layer + layer를 건너뛰어 input 값을 더해 주는 shortcut connection으로 구성됨
             - F(x)와 x를 더한 결과로 도출되는 H(x)가 다음 residual block의 input이 됨
@@ -83,16 +83,16 @@
         - **Connection skipping one or more layers**
         - **Few intermediate layers directly connected to auxiliary classifiers for addressing vanishing/exploding gradients.(GoogLeNet)**
             
-            ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%203.png)
+            <img src = "https://user-images.githubusercontent.com/75057952/151806189-143bf104-434f-4166-a244-fa2a37ae9fa3.png" width = "400dp"/>
             
     - **Highway networks**
         - **ResNet과 마찬가지로 깊은 네트워크 학습에 용이**
         - **T(Transform), C(Carry) Gating function을 통해 shortcut connection과 유사한 기능 수행**
         - **이것과 비교하면 Shortcut connection은 always-open gate : C=1**
             
-            ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%202.png)
+            <img src = "https://user-images.githubusercontent.com/75057952/151806189-143bf104-434f-4166-a244-fa2a37ae9fa3.png" width = "400dp"/>
             
-            ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%204.png)
+            <img src = "https://user-images.githubusercontent.com/75057952/151806306-06f63437-9df9-4a7c-b205-d35526f1154e.png" width = "400dp"/>
             
 - **Deep Residual Learning Architecture**
     - Residual Learning & Identity mapping by shortcuts
@@ -104,7 +104,7 @@
             - However, as optimal function is closer to an identity mapping than a zero mapping, it should be easier to find the perturbations with reference to an identity mapping than to learn the function as a new one
         - Shortcut connection ⇒ identity mapping vs projection shorcuts
             
-            ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%202.png)
+            <img src = "https://user-images.githubusercontent.com/75057952/151806189-143bf104-434f-4166-a244-fa2a37ae9fa3.png" width = "400dp"/>
             
             - Generally, $y = F(x) + x = W_2\sigma(W_1x) + x$     ⇒      $F(x, \{W_i\})+W_sx$ : multiple convolutional layers
             - $W_s$ : Identity mapping(1)이거나, x와 y의 dimension 다를 때 linear projection을 통해 dimesnion을 맞춤(2)
@@ -117,7 +117,7 @@
                 - Downsampling : max pooling with stride 2
                 - Ends with a global average pooling layer and 1000-way fully-connected layer with softmax
                     
-                    ![Picture4.png](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Picture4.png)
+                    <img src = "https://user-images.githubusercontent.com/75057952/151806194-94e7eeef-4b1e-49d8-bf02-4fff18c8b6dc.png" width = "500dp"/>
                     
                 - Plain(3.6bil FLOPs) : Residual(3.6bil FLOPs : 18% of VGG-19)
             - Residual Network
@@ -166,7 +166,7 @@
                 
             - BasicBlock Class = Residual Block
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%202.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806189-143bf104-434f-4166-a244-fa2a37ae9fa3.png" width = "400dp"/>
                 
                 ```python
                 class BasicBlock(nn.Module):
@@ -385,7 +385,7 @@
         def ResNet152():
             return ResNet(Bottleneck, [3, 8, 36, 3])`
         
-        ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%205.png)
+        <img src = "https://user-images.githubusercontent.com/75057952/151806311-c9c7fc73-9bd0-4430-bb46-a610a9f97a10.png" width = "500dp"/>
         
     - Implementation
         - Implementation for ImageNet
@@ -407,13 +407,13 @@
         - top-1 and top-5 error rates evaluation
         - Plain Network vs ResNet(18-layer, 34-layer)
             
-            ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%206.png)
+            <img src = "https://user-images.githubusercontent.com/75057952/151806311-c9c7fc73-9bd0-4430-bb46-a610a9f97a10.png" width = "500dp"/>
             
             **Plain networks : 18-layer vs 34-layer**
             
             - 34-layer plain net has higher training error throughout the whole procedure
                 
-                ![* Bold : Validation / Light : Train Error](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%207.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806318-163939bf-d599-4e24-a197-0d48016a605e.png" width = "500dp"/>
                 
                 * Bold : Validation / Light : Train Error
                 
@@ -423,7 +423,7 @@
                 - Also verified that backward propagated gradients exhibit healthy norms with BN
                 - 34-layer plain net still achieves competitive accuracy : suggesting that solver works to some extent
                     
-                    ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%208.png)
+                    <img src = "https://user-images.githubusercontent.com/75057952/151806321-ed5b76f2-3292-488f-ae4f-17000054e578.png" width = "400dp"/>
                     
                 - **Deep plain nets may have exponentially low convergence rates : hurdles in reducing train error**
             
@@ -432,9 +432,10 @@
             - Same baseline architecture, only shortcut connection is added to each pair of 3X3 filters
             - Identity mapping for all shortcuts and zero-padding for increasing dimensions(no extra params)
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%209.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806325-9ce6a029-42be-442a-8b9a-e28ad5c631d9.png" width = "500dp"/>
+                <img src = "https://user-images.githubusercontent.com/75057952/151806321-ed5b76f2-3292-488f-ae4f-17000054e578.png" width = "500dp"/>
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%208.png)
+                
                 
             - 34 layers ResNet exhibits considerably lower training error and is generalizable to the validation data
             - Degradation problem is well addressed in this setting, able to obtain accuracy gain from increased depth
@@ -444,12 +445,12 @@
                     
                     **Q) Why early stage convergence is a benefit? 그림에서 보면 30e^4 iteration즈음으로 전반적인 convergence는 유사하지 않나요?**
                     
-                    ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2010.png)
+                    <img src = "https://user-images.githubusercontent.com/75057952/151806330-6ac5f798-808e-486d-8d49-3ba138de2fd2.png" width = "500dp"/>
                     
         - Identity vs Projection Shortcuts
             - **Concept of Identity & Projection Shortcuts**
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2011.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806189-143bf104-434f-4166-a244-fa2a37ae9fa3.png" width = "400dp"/>
                 
                 - **input x와 F(x)를 비교했을 때 F(x)의 dimension이 x의 dimension보다 클 경우에는 두 가지 옵션이 있음**
                     - **x를 F(x)가 속해 있는 vector space에 projection해서 dimension을 늘려 주거나 ⇒ Projection Shortcut**
@@ -460,7 +461,7 @@
                 - (B) : dimension이 증가할 때에만 projection shortcuts 사용하고, 그 외에는 identity shortcut
                 - (C) : all shortcuts are projections
                     
-                    ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2012.png)
+                    <img src = "https://user-images.githubusercontent.com/75057952/151806335-1e7b83ca-9985-40fe-8b55-b5847908ee9f.png" width = "400dp"/>
                     
                 - slightly A < B < C
                 - B is slightly better than A : zero-padded dimensions in A have no residual learning
@@ -472,7 +473,7 @@
             - 18,34-layer ⇒ 50,101,152-layer(Bottleneck Architecture)
             - Modification of building block (concerns on the **training time**)
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2013.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806338-338527fe-c9c5-49b6-b53b-c7bfc42b720e.png" width = "400dp"/>
                 
                 - 3X3 layer 앞뒤의 1X1 layer가 dimension을 reduce했다가 다시 늘리는 역할을 하기 때문에, 가운데 3X3 layer는 더 작은 input/output dimension을 가지게 됨 : dimension bottleneck
             - Bottleneck architecture에서 parameter-free identity shortcut의 impact가 더욱 분명함
@@ -486,15 +487,15 @@
             - 50-layer ResNet architecture : replace 2-layer block into 2-layer bottleneck block, 3.8 billion FLOPs(34-layer ResNet과 큰 차이 없음)
             - 101-layer ResNet architecture : 7.6 bil FLOPs / 152-layer ResNet architecture : 11.3 bil FLOPs < VGG-16/19 nets : 15.3/19.6 bil FLOPs
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%206.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806311-c9c7fc73-9bd0-4430-bb46-a610a9f97a10.png" width = "500dp"/>
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2012.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806335-1e7b83ca-9985-40fe-8b55-b5847908ee9f.png" width = "500dp"/>
                 
                 [GitHub - KaimingHe/resnet-1k-layers: Deep Residual Networks with 1K Layers](https://github.com/KaimingHe/resnet-1k-layers)
                 
         - Comparisons with SOTA models
             
-            ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2014.png)
+            <img src = "https://user-images.githubusercontent.com/75057952/151806344-b3d91566-6402-4f41-8ab1-fb29eca29297.png" width = "500dp"/>
             
     - CIFAR-10
         - 50k training images, 10k testing images in 10 classes
@@ -507,7 +508,7 @@
             - 32X32 image input ⇒ first 3X3 convolution layer ⇒ **2n** **convolution layers with** 32X32 output map&16 channels ⇒ **2n convolution layers with** 16X16 output map&32 channels ⇒ **2n convolution layers with** 8X8 output map&64 channels ⇒ 10-way fully-connected layer&softmax (total **6n+2)**
             - **3n** identity shortcuts for ResNet20
                 
-                ![Picture1.png](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Picture1.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806360-f42e8961-9515-454d-9dee-92cb09bd54ac.png" width = "500dp"/>
                 
         - Implementations
             - weight decay = 0.0001, momentum = 0.9
@@ -519,12 +520,12 @@
             - compare n= {3,5,7,9} for 6n+2 layer networks {20,32,44,56}
             - Training on CIFAR-10
                 
-                ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2015.png)
+                <img src = "https://user-images.githubusercontent.com/75057952/151806348-306f8972-ef3d-4baf-85d1-27574d60d61b.png" width = "600dp"/>
                 
                 - Deep plain nets suffer from degradation problem : increased depth ⇒ higher training error (ImageNet, MNIST 데이터셋에서도 유사)
                 - Behavior of ResNets : Manage to overcome the optimization difficulty & accuracy gains when the depth increases
                     
-                    ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2016.png)
+                     <img src = "https://user-images.githubusercontent.com/75057952/151806352-2f8b2791-1aac-47c5-9fff-4b6357637773.png" width = "400dp"/>
                     
                 - SOTA model과 비교해 보면 성능대비 parameter 수가 적음
                 - n=18인 110-layer model의 경우에는 initial learning rate 0.1이 converging하기에 너무 커서 several epoch 후에야 converge 시작함
@@ -549,7 +550,7 @@
         - VGG-16을 backbone network로 하는 Faster R-CNN과 ResNet-101의 비교
             - Average Precision 향상
             
-            ![Untitled](Computer%20Vision%20Week%201%20%5B2021%20CV%5D%205532ef911c0f42dbb50a395e949e724a/Untitled%2017.png)
+            <img src = "https://user-images.githubusercontent.com/75057952/151806354-790141a3-f255-42b7-bcb8-d526fb4e0c8e.png" width = "400dp"/>
             
 
 ### VGG : Very Deep Convolutional Networks For Large-Scale Image Recognition
