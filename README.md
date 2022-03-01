@@ -15,7 +15,7 @@
 |Semantic Segmentation|Implementation|
 |:-:|:-:|
 |**Fully Convolutional Network**||
-|FCN||
+|[FCN](https://arxiv.org/abs/1411.4038)||
 |DeepLab v3||
 |PSPNet||
 |**Convolutional Encoder-Decoder**||
