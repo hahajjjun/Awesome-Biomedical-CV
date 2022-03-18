@@ -3,7 +3,8 @@
 ## GAN
 |**Paper**|Review|
 |:-:|:-:|
-|VAE|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/Autoencoders.ipynb)|
+|AE overview|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/Autoencoders.ipynb)|
+|VAE||
 |GAN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/GAN.ipynb)|
 |f-GAN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/f-GAN.ipynb)|
 ## Segmentation
