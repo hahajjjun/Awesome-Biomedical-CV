@@ -1,22 +1,23 @@
 # Awesome Biomedical CV 
 *Implementations are based on PyTorch.*
-## GAN
+## Generative Models
 |**Paper**|Review|
 |:-:|:-:|
-|AE overview|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/Autoencoders.ipynb)|
-|VAE|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/VAE.ipynb)|
+|AutoEncoder overview|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/Autoencoders.ipynb)|
+|Variational AutoEncoder|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/VAE.ipynb)|
 |GAN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/GAN.ipynb)|
 |f-GAN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/f-GAN.ipynb)|
-## Segmentation
+## Semantic Segmentation
 |Semantic Segmentation|Review|
 |:-:|:-:|
 |**Fully Convolutional Network**||
 |[FCN](https://arxiv.org/abs/1411.4038)|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/Semantic%20Segmentation/FCN.ipynb)|
 |[DeepLab v3]()||
-|PSPNet|[PSPNet](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/Semantic%20Segmentation/PSPNet.ipynb)|
+|PSPNet|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/Semantic%20Segmentation/PSPNet.ipynb)|
 |EncNet||
 |**Convolutional Encoder-Decoder**||
-|U-Net||
+|U-Net|[Implementation]()|
+|BiO-Net|[Implementation]()|
 |DeconvNet||
 |SegNet||
 |MultiResUNet||
