@@ -3,24 +3,30 @@
 ## Generative Models
 |**Paper**|Review|
 |:-:|:-:|
-|AutoEncoder overview|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/Autoencoders.ipynb)|
-|Variational AutoEncoder|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/VAE.ipynb)|
-|GAN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/GAN.ipynb)|
-|f-GAN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/GAN/f-GAN.ipynb)|
-## Semantic Segmentation
+|AutoEncoder overview|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Generative%20Models/Autoencoders.ipynb)|
+|Variational AutoEncoder|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Generative%20Models/Variational%20Autoencoder(VAE).ipynb)|
+|GAN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Generative%20Models/GAN.ipynb)|
+|f-GAN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Generative%20Models/f-GAN.ipynb)|
+## [Semantic Segmentation](https://github.com/hahajjjun/Biomedical-CV/blob/main/Semantic%20Segmentation/Introduction%20to%20Segmentation.ipynb)
 |Semantic Segmentation|Review|
 |:-:|:-:|
 |**Fully Convolutional Network**||
-|[FCN](https://arxiv.org/abs/1411.4038)|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/Semantic%20Segmentation/FCN.ipynb)|
-|[DeepLab v3]()||
-|PSPNet|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Reviews/Semantic%20Segmentation/PSPNet.ipynb)|
+|FCN|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Semantic%20Segmentation/FCN.ipynb)|
+|DeepLab v3||
+|PSPNet|[Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Semantic%20Segmentation/PSPNet.ipynb)|
 |EncNet||
 |**Convolutional Encoder-Decoder**||
-|U-Net|[Implementation]()|
-|BiO-Net|[Implementation]()|
+|U-Net|[2D Implementation](https://github.com/hahajjjun/Biomedical-CV/blob/main/Semantic%20Segmentation/2D%20U-Net.ipynb) [3D Review](https://github.com/hahajjjun/Biomedical-CV/blob/main/Semantic%20Segmentation/3D%20U-Net.ipynb)|
+|BiO-Net|[Implementation](https://github.com/hahajjjun/Biomedical-CV/blob/main/Semantic%20Segmentation/BiO-Net.ipynb)|
 |DeconvNet||
-|SegNet||
+|SegNet|[Implementation](https://github.com/hahajjjun/Biomedical-CV/blob/main/Semantic%20Segmentation/SegNet.ipynb)|
 |MultiResUNet||
+|**Transformer and Attention**|
+|UNETR||
+|Attention U-Net||
+|SE-Net||
+|CBAM||
+|ECA-Net||
 
 |Instance Segmentation|Review|
 |:-:|:-:|
